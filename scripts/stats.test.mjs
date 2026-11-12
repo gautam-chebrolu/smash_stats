@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {parseCSV,normalize,googleRows,playerStats,fighterStats} from '../dist/stats.js';
+const parsed=normalize(parseCSV(readFileSync(new URL('../dist/smash.csv',import.meta.url),'utf8')));
+test('sheet dates carry forward including yearless dates',()=>{assert.equal(parsed.matches.find(m=>m.row===204).date,'2026-08-27');assert.equal(parsed.matches.at(-1).date,'2026-11-11');});
+test('snapshot has 581 matches, excludes two empty/incomplete rows',()=>{assert.equal(parsed.matches.length,581);assert.deepEqual(parsed.skipped,[292,293]);assert.equal(parsed.matches.filter(m=>m.winner).length,577);});
+test('winner case is normalized; wins sum only to decided games',()=>{const p=playerStats(parsed.matches);assert.deepEqual(p.map(x=>x.wins),[144,186,247]);assert.equal(p.reduce((s,x)=>s+x.wins,0),577);});
+test('missing kills remain missing; zero is a recorded score',()=>{const p=playerStats(parsed.matches);assert.deepEqual(p.map(x=>x.killGames),[579,578,578]);assert.equal(parsed.matches.find(m=>m.row===104).kills[1],null);assert.equal(parsed.matches.find(m=>m.row===102).kills[1],0);});
+test('character aliases merge and blank picks are excluded',()=>{const g=fighterStats(parsed.matches,'G');assert.equal(g.find(x=>x.name==='Donkey Kong').picks,22);assert.equal(g.some(x=>x.name==='DK'),false);assert.equal(g.some(x=>!x.name),false);assert.equal(fighterStats(parsed.matches).reduce((s,x)=>s+x.picks,0),1437);});
+test('empty cohorts have no misleading rates',()=>{assert.equal(playerStats([])[0].avg,null);assert.equal(playerStats([])[0].winRate,null);assert.deepEqual(fighterStats([]),[]);});
+test('live Google date values preserve their year and carry through blank cells',()=>{const rows=googleRows({table:{rows:[{c:[{v:'Date(2026,7,27)',f:'8/27'},{v:'v'},{v:0},{v:2},{v:5},{v:'DK'},{v:'Ness'},{v:'Zelda'}]},{c:[null,{v:'G'},{v:3},null,{v:2}]}]}});const data=normalize(rows);assert.equal(data.matches[0].date,'2026-08-27');assert.equal(data.matches[1].date,'2026-08-27');assert.deepEqual(data.matches[1].kills,[3,null,2]);assert.equal(data.matches[0].characters[0],'Donkey Kong');});
+test('CSV parser handles quoted commas, escaped quotes and CRLF',()=>{assert.deepEqual(parseCSV('a,"b,c","d""e"\r\n1,2,3'),[['a','b,c','d"e'],['1','2','3']]);});
