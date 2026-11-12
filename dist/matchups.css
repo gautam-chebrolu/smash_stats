@@ -1,0 +1,60 @@
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.matchup-roster-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.matchup-roster-filters .field select{width:100%;min-width:0}
+.matchup-roster-filters label .dot{height:6px;width:6px;margin-right:4px}
+.matchup-browser-toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:18px;margin-top:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.matchup-sessions-toggle{display:flex;align-items:center;gap:7px;font-size:11px;color:#79866c;min-height:38px;margin-left:auto;cursor:pointer}
+.matchup-sessions-toggle input{accent-color:#6c8357;width:14px;height:14px}
+.matchup-reset{align-self:center;margin-top:17px;white-space:nowrap}
+.matchup-coverage{font-size:10px;line-height:1.7;color:#929c86;margin:16px 0 0}
+.matchup-count{padding-bottom:10px}
+.matchup-list-table{min-width:750px}
+.matchup-list-table tbody td{font-size:10px}
+.matchup-list-table .fighter-image{height:27px;width:27px}
+.matchup-list-table tbody td:first-child{padding-left:8px}
+.matchup-list-table thead th:first-child{padding-left:8px}
+.matchup-list-table .button-outline{font-size:9px;height:32px;padding:7px 10px}
+.matchup-list-table .matchup-selected{background:#f3f5ed}
+.matchup-list-table .matchup-selected .button-outline{background:#e9efde;border-color:#d8e2c8;color:#647c4d}
+.matchup-cell-note{display:block;font-size:9px;color:#9aa48d;line-height:1.6;margin-top:4px}
+.matchup-record{display:flex;gap:5px}
+.matchup-record>span{padding:3px 5px;background:color-mix(in srgb,var(--player) 10%,white);color:var(--player);border-radius:3px;font-size:9px;font-weight:550}
+.matchup-detail{margin-top:24px;scroll-margin-top:24px}
+.matchup-date-span{font-size:10px;color:#8e9981}
+.matchup-lineup{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.matchup-lineup>div{display:flex;gap:12px;align-items:center;padding:12px;background:color-mix(in srgb,var(--player) 7%,white);border-radius:5px;border:1px solid color-mix(in srgb,var(--player) 15%,white);min-width:0}
+.matchup-lineup .fighter-image{height:43px;width:43px}
+.matchup-lineup small{display:block;font-size:9px;font-weight:600;color:var(--player);margin-bottom:3px}
+.matchup-lineup strong{font-size:13px;font-weight:550;line-height:1.3;display:block}
+.matchup-detail-caption{font-size:10px;color:#909b83;margin:15px 0 18px;line-height:1.7}
+.matchup-player-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--line);padding-top:20px}
+.matchup-player-cards article{min-width:0}
+.matchup-player-cards h3{display:flex;gap:7px;align-items:center;font-size:12px;font-weight:550;margin:0 0 13px}
+.matchup-player-cards h3 .dot{background:var(--player)}
+.matchup-player-metrics{display:grid;grid-template-columns:.7fr 1fr 1fr;gap:10px}
+.matchup-player-metrics strong{font-size:22px;letter-spacing:-.6px;font-weight:550;display:block;line-height:1.2}
+.matchup-player-metrics span{font-size:7px;letter-spacing:.5px;font-weight:600;display:block;color:#9aa48d;margin-top:5px}
+.matchup-player-cards article>p{font-size:9px;color:#9aa48d;margin:12px 0 0;line-height:1.6}
+.matchup-trend-heading{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.matchup-trend-heading h3{font-size:14px;font-weight:550;margin:0}
+.matchup-trend-caption{font-size:10px;color:#929c86;line-height:1.7;margin:7px 0 12px}
+.matchup-trend-heading .segmented{flex-shrink:0}
+.matchup-detail>.legend{font-size:9px;margin-top:4px}
+.matchup-chart{margin:8px -4px 0;overflow-x:auto}
+.matchup-chart svg{display:block;width:100%;min-width:440px;overflow:visible}
+.matchup-chart text{font:10px var(--body);fill:#8b967e}
+.matchup-chart [role=button]:focus-visible{outline:2px solid #929d7e;outline-offset:-2px}
+.matchup-tooltip{position:absolute;z-index:5;pointer-events:none;background:#292d27;color:#fff;border-radius:6px;padding:13px 15px;font-size:10px;box-shadow:0 4px 14px #0002;max-width:calc(100% - 16px)}
+.matchup-tooltip>b{font-size:11px}
+.matchup-tooltip>p{font-size:9px;color:#bfc9b3;margin:5px 0 10px}
+.matchup-tooltip>div{display:grid;grid-template-columns:7px 1fr auto;gap:2px 8px;align-items:center;margin-top:8px;min-width:175px}
+.matchup-tooltip strong{font-weight:550;text-align:right}
+.matchup-tooltip small{font-size:9px;color:#bfc9b3;grid-column:2/-1}
+.matchup-detail>details{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.matchup-detail>details>summary{font-size:11px;font-weight:550;color:#6b7d58;cursor:pointer}
+.matchup-detail>details>summary:hover{color:var(--accent)}
+.matchup-detail>details .table-scroll{margin-top:12px}
+.matchup-session-details table{min-width:580px}
+@media(max-width:1100px){.matchup-browser-toolbar{gap:14px}.matchup-sessions-toggle{margin-left:0}.matchup-lineup{gap:10px}.matchup-lineup>div{gap:8px;padding:10px}.matchup-lineup strong{font-size:11px}.matchup-player-cards{gap:14px}.matchup-player-metrics strong{font-size:19px}.matchup-player-metrics{gap:8px}.matchup-player-metrics span{letter-spacing:0;font-size:7px}.matchup-lineup .fighter-image{height:34px;width:34px}}
+@media(max-width:650px){.sidebar{padding-inline:12px}.brand{margin-right:10px}.sidebar nav{gap:2px}.nav-link{padding:8px 7px;font-size:9px;gap:4px}.nav-link>span{font-size:15px}.matchup-roster-filters{grid-template-columns:1fr;gap:14px}.matchup-roster-filters .field label{font-size:9px}.matchup-browser-toolbar{display:grid;grid-template-columns:1fr 1fr;gap:13px}.matchup-browser-toolbar .field select{min-width:0;width:100%}.matchup-sessions-toggle{grid-column:1/-1;font-size:10px;min-height:24px}.matchup-reset{justify-self:start;margin-top:0}.matchup-coverage{font-size:9px}.matchup-detail{scroll-margin-top:80px}.matchup-detail>.panel-heading{flex-direction:column;align-items:start;gap:8px}.matchup-date-span{font-size:9px}.matchup-lineup{grid-template-columns:1fr;gap:8px;margin-top:17px}.matchup-lineup>div{padding:10px 13px;gap:12px}.matchup-lineup strong{font-size:13px}.matchup-lineup small{font-size:9px}.matchup-lineup>div>span{display:flex;align-items:center;gap:12px}.matchup-lineup>div>span>small{min-width:48px;margin:0}.matchup-detail-caption{font-size:9px}.matchup-player-cards{grid-template-columns:1fr;gap:16px}.matchup-player-cards article{display:grid;grid-template-columns:70px 1fr;gap:9px}.matchup-player-cards h3{margin:0;font-size:12px}.matchup-player-metrics strong{font-size:21px}.matchup-player-metrics span{font-size:7px}.matchup-player-cards article>p{grid-column:2;margin:0;font-size:9px}.matchup-trend-heading{flex-direction:column;gap:4px}.matchup-trend-heading .segmented{margin-bottom:9px}.matchup-trend-caption{font-size:9px}.matchup-tooltip>div{min-width:150px}.matchup-tooltip small{font-size:8px}}
+@media(max-width:420px){.nav-link{flex-direction:column;gap:3px;padding:5px 7px;font-size:8px}.nav-link>span{font-size:16px}.sidebar nav{justify-content:space-between}}
